@@ -1989,7 +1989,7 @@ expiry_merge([File | Files], LiveKeyDir, KT, Acc0) ->
             error_logger:info_msg("All keys expired in: ~p scheduling "
                                   "file for deletion\n",
                                   [File#filestate.filename]),
-            Acc = lists:append(Acc0, [File])
+            Acc = Acc0 ++ [File]
     end,
     expiry_merge(Files, LiveKeyDir, KT, Acc).
 
